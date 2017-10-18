@@ -11,11 +11,19 @@ export default class Exhibit extends Component {
     this.state = {
        selectedAnimal: this.props.selectedAnimal,
     }
+    /*
+    Since your state object above is within your constructor body, you don't need to say
+    this.props.selectedAnimal. You have direct access to the props from within the constructor
+    body, so you could just say props.selectedAnimal here.
+    */
     this.setAnimal = this.setAnimal.bind(this);
   }
 
 
-
+  /*
+  You shouldn't need this componentDidMount method below if you are setting your state with
+  the props.selectedAnimal directly in your constructor.
+  */
   componentDidMount() {
     this.setState( {
       selectedAnimal: AnimalSelect.selectedAnimal
